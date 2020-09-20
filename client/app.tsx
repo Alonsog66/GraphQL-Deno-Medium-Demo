@@ -1,6 +1,6 @@
-import { React } from '../deps.ts';
-import NavBar from './Components/NavBar.tsx';
-import MainContainer from './Components/MainContainer.tsx';
+import { React, ObsidianWrapper } from '../deps.ts';
+
+import MainComponent from './Components/MainComponent.tsx';
 
 declare global {
   namespace JSX {
@@ -11,13 +11,10 @@ declare global {
 }
 
 const App = () => {
-  const [page, setPage] = (React as any).useState('home');
-
   return (
-    <div className='app'>
-      <NavBar setPage={setPage} />
-      <MainContainer page={page} />
-    </div>
+    <ObsidianWrapper>
+      <MainComponent />
+    </ObsidianWrapper>
   );
 };
 

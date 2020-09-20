@@ -1,67 +1,36 @@
-import { React } from '../../deps.ts';
-import DocsContext from './SideBarContext/DocsContext.tsx';
-import MainContext from './SideBarContext/MainContext.tsx';
-import AboutContext from './SideBarContext/AboutContext.tsx';
-import DemoContext from './SideBarContext/DemoContext.tsx';
+import React from 'https://dev.jspm.io/react@16.13.1';
 
 declare global {
   namespace JSX {
     interface IntrinsicElements {
+      button: any;
       div: any;
-      img: any;
-      h4: any;
-      a: any;
-      hr: any;
-      footer: any;
+      h2: any;
+      h5: any;
+      p: any;
     }
   }
 }
 
-const NavBar = (props: any) => {
-  const { page } = props;
+const Sidebar = (props: any) => {
+  if (!Object.values(props.info).length)
+    return <div id='sidebar-wrapper'>Select a Character!</div>;
 
-  let curContext;
-
-  if (page === 'home') curContext = <MainContext />;
-  if (page === 'about') curContext = <AboutContext user={props.user} />;
-  if (page === 'demo') curContext = <DemoContext />;
-  if (page === 'docs') curContext = <DocsContext />;
+  const { name, status, species, gender, location, origin } = props.info;
 
   return (
-    <div
-      className='sidebar'
-      style={page === 'home' ? { backgroundColor: 'rgba(0,0,0,0)' } : {}}
-    >
-      <div className='codeLinks'>
-        <a href='https://github.com/oslabs-beta/obsidian'>
-          <div className='codeLinkDiv'>
-            <img
-              id='githubLogo'
-              src='../static/github-icon.svg'
-              alt='GitHub Logo'
-            />
-            <h4>·GitHub</h4>
-          </div>
-        </a>
-        <a href='https://deno.land/x/obsidian'>
-          <div className='codeLinkDiv'>
-            <img src='../static/Deno-Logo.svg' alt='Deno Logo' />
-            <h4>·deno.land</h4>
-          </div>
-        </a>
-      </div>
-      <div
-        className='sideContent'
-        style={
-          page === 'home'
-            ? { backgroundColor: 'rgba(0,0,0,0)', overflow: 'visible' }
-            : {}
-        }
-      >
-        {curContext}
+    <div id='sidebar-wrapper'>
+      <h2>{name}</h2>
+      <h5>- Status: {status} -</h5>
+
+      <div>
+        <p>Species: {species}</p>
+        <p>Gender: {gender}</p>
+        <p>Origin: {origin.name}</p>
+        <p>Current Location: {location.name}</p>
       </div>
     </div>
   );
 };
 
-export default NavBar;
+export default Sidebar;
