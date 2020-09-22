@@ -5,6 +5,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-color: #e5eaf5;
+  border: solid 2px #a28089;
 }
 #app-container {
   display: flex;
@@ -17,21 +19,25 @@
 #carousel {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  background-color: rgba(13, 13, 102, 0.623);
+  background-color: #a0d2eb;
   width: 85%;
   height: 100%;
   overflow: scroll;
+  border: solid 2px #a28089;
 }
 
 .card {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-color: teal;
+  background-color: #d0bdf4;
   padding: 1vw;
   margin: 1vw;
   border: solid 1px black;
 }
 #sidebar-wrapper {
   padding: 1vw;
+  border: solid 2px #a28089;
+  background-color: #fff;
+  margin: 0.5vw;
 }

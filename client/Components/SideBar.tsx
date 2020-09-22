@@ -8,6 +8,7 @@ declare global {
       h2: any;
       h5: any;
       p: any;
+      u: any;
     }
   }
 }
@@ -20,6 +21,9 @@ const Sidebar = (props: any) => {
 
   return (
     <div id='sidebar-wrapper'>
+      <h1>
+        <u>Character Info.</u>
+      </h1>
       <h2>{name}</h2>
       <h5>- Status: {status} -</h5>
 
